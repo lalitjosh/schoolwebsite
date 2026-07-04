@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 800" role="img" aria-label="Illustrated principal portrait">
+  <rect width="800" height="800" fill="#f6f4ef"/>
+  <circle cx="400" cy="275" r="130" fill="#f2b84b"/>
+  <circle cx="400" cy="245" r="105" fill="#f7c8a9"/>
+  <path d="M285 250c20-105 184-122 235-20 18-96-58-165-152-158-93 7-150 78-83 178z" fill="#173321"/>
+  <path d="M205 720c22-158 135-235 195-235s173 77 195 235" fill="#243f79"/>
+  <path d="M330 485l70 95 70-95" fill="#fff"/>
+  <path d="M332 325c38 42 100 42 136 0" fill="none" stroke="#8a4f22" stroke-width="14" stroke-linecap="round"/>
+  <text x="400" y="695" text-anchor="middle" font-family="Georgia, serif" font-size="48" font-weight="700" fill="#fff">Principal</text>
+</svg>
