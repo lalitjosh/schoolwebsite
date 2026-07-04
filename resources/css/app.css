@@ -1,0 +1,145 @@
+@import 'tailwindcss';
+
+@source '../../vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php';
+@source '../../storage/framework/views/*.php';
+@source '../**/*.blade.php';
+@source '../**/*.js';
+
+@theme {
+    --font-sans: 'Instrument Sans', ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji',
+        'Segoe UI Symbol', 'Noto Color Emoji';
+}
+
+:root {
+    --school-primary: #a0183d;
+    --school-deep: #111827;
+    --school-accent: #16a34a;
+    --school-red: #dc2626;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: "DM Sans", var(--font-sans);
+    background-color: #fbfaf7;
+}
+
+.font-display {
+    font-family: "Playfair Display", Georgia, serif;
+}
+
+@keyframes notice-marquee {
+    from {
+        transform: translateX(0);
+    }
+
+    to {
+        transform: translateX(-50%);
+    }
+}
+
+.notice-marquee {
+    animation: notice-marquee 24s linear infinite;
+}
+
+.notice-marquee:hover {
+    animation-play-state: paused;
+}
+
+@keyframes ticker {
+    from {
+        transform: translateX(0);
+    }
+
+    to {
+        transform: translateX(-100%);
+    }
+}
+
+.animate-ticker {
+    animation: ticker 28s linear infinite;
+}
+
+.ticker-wrapper:hover .animate-ticker {
+    animation-play-state: paused;
+}
+
+.reveal,
+.reveal-left,
+.reveal-right {
+    opacity: 0;
+    transition: opacity 700ms ease, transform 700ms ease;
+}
+
+.reveal {
+    transform: translateY(24px);
+}
+
+.reveal-left {
+    transform: translateX(-28px);
+}
+
+.reveal-right {
+    transform: translateX(28px);
+}
+
+.reveal.visible,
+.reveal-left.visible,
+.reveal-right.visible {
+    opacity: 1;
+    transform: translate(0, 0);
+}
+
+@keyframes float-symbol {
+    0% {
+        opacity: 0;
+        transform: translateY(0) rotate(0deg);
+    }
+
+    12%,
+    82% {
+        opacity: 0.55;
+    }
+
+    100% {
+        opacity: 0;
+        transform: translateY(-115vh) rotate(18deg);
+    }
+}
+
+.edu-sym {
+    position: absolute;
+    pointer-events: none;
+    font-weight: 800;
+    animation-name: float-symbol;
+    animation-timing-function: linear;
+    animation-iteration-count: 1;
+    white-space: nowrap;
+}
+
+.edu-sym.green {
+    color: rgba(34, 197, 94, 0.72);
+}
+
+.edu-sym.burgundy {
+    color: rgba(244, 114, 182, 0.50);
+}
+
+.edu-sym.white {
+    color: rgba(255, 255, 255, 0.45);
+}
+
+.hero-grid {
+    background-image: radial-gradient(circle at 2px 2px, rgba(255, 255, 255, .16) 1px, transparent 0);
+    background-size: 34px 34px;
+}
+
+.gallery-filter-active,
+.news-filter-active,
+.faculty-filter-active {
+    background: #a0183d;
+    color: #fff;
+    box-shadow: 0 10px 25px rgba(160, 24, 61, 0.20);
+}
