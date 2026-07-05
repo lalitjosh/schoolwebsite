@@ -111,8 +111,8 @@
                                 <span class="text-lg font-black">&#10003;</span>
                             </span>
                             <span>
-                                <span class="block text-2xl font-black leading-none text-[#111827]">90%</span>
-                                <span class="mt-1 block text-xs font-bold text-slate-500">Success</span>
+                                <span class="block text-2xl font-black leading-none text-[#111827]">98%</span>
+                                <span class="mt-1 block text-xs font-bold text-slate-500">Pass Rate</span>
                             </span>
                         </div>
                     </div>

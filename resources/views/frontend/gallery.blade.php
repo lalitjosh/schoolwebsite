@@ -5,16 +5,17 @@
 @php
     $galleryHero = $content->get('gallery.hero');
     $fallbackImages = collect([
-        ['title' => 'School Campus', 'category' => 'Campus', 'image' => 'https://www.sushmasecondary.edu.np/assets/image/sushma_front.jpg'],
-        ['title' => 'Classroom Activity', 'category' => 'Activities', 'image' => 'https://www.sushmasecondary.edu.np/assets/image/sushma_robotics.jpg'],
-        ['title' => 'Kids Learning', 'category' => 'Kids', 'image' => 'https://www.sushmasecondary.edu.np/assets/image/kids.jpg'],
-        ['title' => 'School Life', 'category' => 'Events', 'image' => 'https://www.sushmasecondary.edu.np/assets/image/sushma_baby.jpg'],
+        ['title' => 'School Campus', 'category' => 'Campus', 'description' => 'A look at the school environment where students learn, gather, and grow.', 'image' => 'https://www.sushmasecondary.edu.np/assets/image/sushma_front.jpg'],
+        ['title' => 'Classroom Activity', 'category' => 'Activities', 'description' => 'Students taking part in practical lessons and everyday classroom learning.', 'image' => 'https://www.sushmasecondary.edu.np/assets/image/sushma_robotics.jpg'],
+        ['title' => 'Kids Learning', 'category' => 'Kids', 'description' => 'Early learners exploring creativity, habits, and guided discovery.', 'image' => 'https://www.sushmasecondary.edu.np/assets/image/kids.jpg'],
+        ['title' => 'School Life', 'category' => 'Events', 'description' => 'Moments from activities, celebrations, and student life around campus.', 'image' => 'https://www.sushmasecondary.edu.np/assets/image/sushma_baby.jpg'],
     ]);
     $photos = ($galleries ?? collect())->flatMap(function ($gallery) {
         $images = $gallery->images && $gallery->images->isNotEmpty()
             ? $gallery->images->map(fn ($image) => [
                 'title' => $image->caption ?: $gallery->title,
                 'category' => $gallery->title,
+                'description' => $gallery->description,
                 'image' => asset('storage/' . $image->image),
             ])
             : collect();
@@ -23,6 +24,7 @@
             $images->prepend([
                 'title' => $gallery->title,
                 'category' => $gallery->title,
+                'description' => $gallery->description,
                 'image' => asset('storage/' . $gallery->cover_image),
             ]);
         }
@@ -70,8 +72,13 @@
                     <button type="button" data-gallery-card data-category="{{ $photo['category'] }}" data-src="{{ $photo['image'] }}" data-title="{{ $photo['title'] }}" class="group mb-5 block w-full break-inside-avoid overflow-hidden rounded-2xl bg-white text-left shadow-sm ring-1 ring-gray-100 transition hover:-translate-y-1 hover:shadow-xl">
                         <img src="{{ $photo['image'] }}" alt="{{ $photo['title'] }}" class="w-full object-cover transition duration-700 group-hover:scale-105" style="height: 240px; object-fit: cover;" loading="lazy">
                         <div class="p-4">
-                            <p class="text-xs font-bold uppercase tracking-widest text-[#f5b82e]">{{ $photo['category'] }}</p>
-                            <h2 class="mt-1 font-bold text-[#111827]">{{ $photo['title'] }}</h2>
+                            @if (strcasecmp($photo['category'], $photo['title']) !== 0)
+                                <p class="text-xs font-bold uppercase tracking-widest text-[#f5b82e]">{{ $photo['category'] }}</p>
+                            @endif
+                            <h2 class="font-bold text-[#111827]">{{ $photo['title'] }}</h2>
+                            @if (! empty($photo['description']))
+                                <p class="mt-2 text-sm leading-6 text-slate-600">{{ \Illuminate\Support\Str::limit($photo['description'], 130) }}</p>
+                            @endif
                         </div>
                     </button>
                 @endforeach
