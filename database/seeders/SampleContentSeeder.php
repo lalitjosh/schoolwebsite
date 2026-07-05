@@ -15,7 +15,7 @@ class SampleContentSeeder extends Seeder
         HeroSlider::updateOrCreate([
             'title' => 'Where Young Minds Flourish',
         ], [
-            'subtitle' => 'Quality education from PG to Grade 10 with modern learning, values, and holistic student development.',
+            'subtitle' => 'Quality education from PG to Grade 12 with modern learning, values, and holistic student development.',
             'image' => 'hero/h28W4Fb0HccRX9XgUTKlVXAmDpOmjJU7P262AMJR.jpg',
             'sort_order' => 0,
             'status' => true,
@@ -44,7 +44,7 @@ class SampleContentSeeder extends Seeder
                 'section' => 'Hero',
                 'eyebrow' => 'Est. 2062 BS - Admissions Open',
                 'title' => 'Where Young',
-                'subtitle' => 'Cambridge Public School Amargadhi-5, Dadeldhura nurtures learners from PG to Grade 10 with strong academics, modern teaching, discipline, creativity, and values.',
+                'subtitle' => 'Cambridge Public School Amargadhi-5, Dadeldhura nurtures learners from PG to Grade 12 with strong academics, modern teaching, discipline, creativity, and values.',
                 'button_label' => 'Apply Now',
                 'button_url' => '/admissions',
                 'items' => ['Minds Flourish', 'Leaders Emerge', 'Futures Begin', 'Dreams Take Root'],
@@ -71,7 +71,7 @@ class SampleContentSeeder extends Seeder
                 'key' => 'home.stats',
                 'page' => 'Home',
                 'section' => 'Stats',
-                'items' => ['800+|Students', '50+|Teachers', '20+|Years', '40+|Activities'],
+                'items' => ['1000+|Students', '50+|Teachers', '17+|Years', '40+|Activities'],
             ],
             [
                 'key' => 'home.cta',
@@ -98,7 +98,7 @@ class SampleContentSeeder extends Seeder
                 'section' => 'Hero',
                 'eyebrow' => 'About Us',
                 'title' => 'A caring school community with high academic expectations.',
-                'subtitle' => 'Cambridge Public School Amargadhi-5, Dadeldhura provides quality education from PG to Grade 10 with modern teaching, strong academics, and holistic student development.',
+                'subtitle' => 'Cambridge Public School Amargadhi-5, Dadeldhura provides quality education from PG to Grade 12 with modern teaching, strong academics, and holistic student development.',
                 'items' => ['Our Mission|To provide practical, joyful, and disciplined learning where every student is known, challenged, and supported.', 'Our Vision|To prepare thoughtful learners who lead with knowledge, kindness, responsibility, and confidence.', 'Our Values|Respect, curiosity, honesty, teamwork, service, and steady improvement guide school life.'],
             ],
             [
@@ -116,7 +116,7 @@ class SampleContentSeeder extends Seeder
                 'section' => 'Overview',
                 'eyebrow' => 'Academics',
                 'title' => 'Learning that balances fundamentals, projects, and exam readiness.',
-                'subtitle' => 'PG to Grade 10',
+                'subtitle' => 'PG to Grade 12',
                 'body' => 'Cambridge Public School supports students through early learning, middle school foundations, and high school preparation.',
                 'items' => ['Kids School: Nursery - Grade 3', 'Middle School: Grade 4 - 8', 'High School: Grade 9 - 12', 'Practical learning and projects', 'Co-curricular activities', 'Guidance and mentoring'],
             ],

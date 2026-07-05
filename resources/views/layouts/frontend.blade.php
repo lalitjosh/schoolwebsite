@@ -4,8 +4,8 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="csrf-token" content="{{ csrf_token() }}">
-    <title>@yield('title', ($setting->school_name ?? 'Cambridge Public School') . ' | PG to Grade 10')</title>
-    <meta name="description" content="Cambridge Public School Amargadhi-5, Dadeldhura provides quality education from PG to Grade 10 with modern teaching, strong academics, and holistic student development.">
+    <title>@yield('title', ($setting->school_name ?? 'Cambridge Public School') . ' | PG to Grade 12')</title>
+    <meta name="description" content="Cambridge Public School Amargadhi-5, Dadeldhura provides quality education from PG to Grade 12 with modern teaching, strong academics, and holistic student development.">
     <link rel="canonical" href="{{ url('/') }}">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -98,7 +98,7 @@
                                         <span class="rounded-full bg-white/10 px-2 py-0.5 text-[10px] font-semibold text-white/70">{{ optional($notice->publish_date)->diffForHumans() ?? 'Latest' }}</span>
                                     </a>
                                 @empty
-                                    @foreach (['Admissions Open for 2083!', 'Quality education from PG to Grade 10', 'Modern learning with values and discipline'] as $notice)
+                                    @foreach (['Admissions Open for 2083!', 'Quality education from PG to Grade 12', 'Modern learning with values and discipline'] as $notice)
                                         <a href="{{ route('admission') }}" class="group inline-flex items-center gap-3 px-6">
                                             <span class="h-1.5 w-1.5 rounded-full bg-[#f5b82e] opacity-70"></span>
                                             <span class="text-xs font-medium text-white transition group-hover:text-[#f5b82e]">{{ $notice }}</span>

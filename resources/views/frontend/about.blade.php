@@ -88,7 +88,7 @@
     <section class="relative overflow-hidden bg-[#111827] py-20 text-white">
         <div class="absolute inset-0 opacity-10" style="background-image: radial-gradient(#f5b82e 1px, transparent 1px); background-size: 24px 24px;"></div>
         <div class="relative mx-auto grid max-w-7xl gap-6 px-4 sm:px-6 md:grid-cols-4 lg:px-8">
-            @foreach ([[$setting->established_year ?? '2062', 'Year Established'], ['1000+', 'Students'], ['50+', 'Teachers'], ['20+', 'Activities']] as [$number, $label])
+            @foreach ([['17+', 'Years'], ['1000+', 'Students'], ['50+', 'Teachers'], ['40+', 'Activities']] as [$number, $label])
                 <div class="reveal rounded-3xl border border-white/10 bg-white/8 p-8 text-center">
                     <p class="font-display text-4xl font-black text-[#f5b82e]">{{ $number }}</p>
                     <p class="mt-2 font-medium text-pink-100/80">{{ $label }}</p>

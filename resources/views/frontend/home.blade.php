@@ -1,5 +1,5 @@
 
-@section('title', ($setting->school_name ?? 'Cambridge Public School') . ' Amargadhi-5, Dadeldhura | PG to Grade 10')
+@section('title', ($setting->school_name ?? 'Cambridge Public School') . ' Amargadhi-5, Dadeldhura | PG to Grade 12')
 
 @section('content')
 @php
@@ -20,8 +20,15 @@
     ];
     $stats = ($homeStats?->items && count($homeStats->items) > 0) ? collect($homeStats->items)->map(function ($item) {
         [$number, $label] = array_pad(explode('|', $item, 2), 2, '');
-        return [trim($number), trim($label)];
-    })->all() : [['800+', 'Students'], ['50+', 'Teachers'], ['20+', 'Years'], ['40+', 'Activities']];
+        $label = trim($label);
+        $number = match (strtolower($label)) {
+            'students' => '1000+',
+            'years' => '17+',
+            default => trim($number),
+        };
+
+        return [$number, $label];
+    })->all() : [['1000+', 'Students'], ['50+', 'Teachers'], ['17+', 'Years'], ['40+', 'Activities']];
     $features = ($homeFeatures?->items && count($homeFeatures->items) > 0) ? collect($homeFeatures->items)->map(function ($item) {
         [$title, $text] = array_pad(explode('|', $item, 2), 2, '');
         return [trim($title), trim($text)];
@@ -89,7 +96,7 @@
                     {{ $homeHero?->title ?? $hero?->title ?? 'Where Young' }} <span class="text-[#f5b82e]" id="hero-typewriter" data-phrases='@json($typewriterPhrases)'>{{ $typewriterPhrases[0] ?? 'Minds Flourish' }}</span>
                 </h1>
                 <p class="mt-6 max-w-2xl text-lg leading-8 text-pink-50/85">
-                    {{ $homeHero?->subtitle ?? $hero?->subtitle ?? 'Cambridge Public School Amargadhi-5, Dadeldhura nurtures learners from PG to Grade 10 with strong academics, modern teaching, discipline, creativity, and values.' }}
+                    {{ $homeHero?->subtitle ?? $hero?->subtitle ?? 'Cambridge Public School Amargadhi-5, Dadeldhura nurtures learners from PG to Grade 12 with strong academics, modern teaching, discipline, creativity, and values.' }}
                 </p>
                 <div class="mt-9 flex flex-col gap-4 sm:flex-row">
                     <a href="{{ $homeHero?->button_url ?: route('admission') }}" class="inline-flex items-center justify-center rounded-2xl bg-[#f5b82e] px-9 py-4 font-bold text-[#111827] shadow-xl transition hover:scale-105 hover:bg-[#fbbf24]">{{ $homeHero?->button_label ?? 'Apply Now' }}</a>

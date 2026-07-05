@@ -14,9 +14,11 @@ use App\Models\Notice;
 use App\Models\PageContent;
 use App\Models\Result;
 use App\Models\Setting;
+use App\Models\Subscriber;
 use App\Models\Testimonial;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Validator;
 
 class HomeController extends Controller
 {
@@ -24,12 +26,12 @@ class HomeController extends Controller
     {
         return view('frontend.home', [
             'setting' => Setting::query()->latest()->first(),
-            'heroSlides' => HeroSlider::query()
+            'heroSlides' => $this->normalizeHeroSlides(HeroSlider::query()
                 ->where('status', true)
                 ->orderBy('sort_order')
                 ->latest()
                 ->take(3)
-                ->get(),
+                ->get()),
             'notices' => Notice::query()
                 ->latest('publish_date')
                 ->take(4)
@@ -74,7 +76,7 @@ class HomeController extends Controller
             'program' => $this->academicProgram('academics.overview', [
                 'eyebrow' => 'Academics',
                 'title' => 'Learning that balances fundamentals, projects, and exam readiness.',
-                'level' => 'PG to Grade 10',
+                'level' => 'PG to Grade 12',
                 'description' => 'Cambridge Public School supports students through early learning, middle school foundations, and high school preparation.',
                 'features' => ['Kids School: Nursery - Grade 3', 'Middle School: Grade 4 - 8', 'High School: Grade 9 - 12', 'Practical learning and projects', 'Co-curricular activities', 'Guidance and mentoring'],
             ]),
@@ -217,6 +219,26 @@ class HomeController extends Controller
             ->with('success', 'Admission inquiry received. Our team will follow up with you.');
     }
 
+    public function subscribe(Request $request): RedirectResponse
+    {
+        $validator = Validator::make($request->only('email'), [
+            'email' => ['required', 'email', 'max:150', 'unique:subscribers,email'],
+        ], [
+            'email.unique' => 'This email address is already subscribed.',
+        ]);
+
+        if ($validator->fails()) {
+            return redirect(route('news') . '#subscribe')
+                ->withErrors($validator)
+                ->withInput();
+        }
+
+        Subscriber::create($validator->validated());
+
+        return redirect(route('news') . '#subscribe')
+            ->with('success', 'Thank you for subscribing. You will receive notice and event reminders.');
+    }
+
     private function sharedViewData(array $extra = []): array
     {
         return array_merge([
@@ -239,7 +261,36 @@ class HomeController extends Controller
             ->where('is_active', true)
             ->orderBy('sort_order')
             ->get()
+            ->map(fn (PageContent $section) => $this->normalizePageContent($section))
             ->keyBy('key');
+    }
+
+    private function normalizeHeroSlides(\Illuminate\Support\Collection $slides): \Illuminate\Support\Collection
+    {
+        return $slides->map(function (HeroSlider $slide) {
+            $slide->title = $this->normalizeSchoolLevelText($slide->title);
+            $slide->subtitle = $this->normalizeSchoolLevelText($slide->subtitle);
+
+            return $slide;
+        });
+    }
+
+    private function normalizePageContent(PageContent $section): PageContent
+    {
+        foreach (['eyebrow', 'title', 'subtitle', 'body', 'button_label'] as $field) {
+            $section->{$field} = $this->normalizeSchoolLevelText($section->{$field});
+        }
+
+        if (is_array($section->items)) {
+            $section->items = array_map(fn ($item) => $this->normalizeSchoolLevelText($item), $section->items);
+        }
+
+        return $section;
+    }
+
+    private function normalizeSchoolLevelText(?string $value): ?string
+    {
+        return $value === null ? null : str_replace('PG to Grade 10', 'PG to Grade 12', $value);
     }
 
     private function academicProgram(string $key, array $defaults): array
@@ -252,6 +303,8 @@ class HomeController extends Controller
         if (! $section) {
             return $defaults;
         }
+
+        $section = $this->normalizePageContent($section);
 
         return [
             'eyebrow' => $section->eyebrow ?: $defaults['eyebrow'],

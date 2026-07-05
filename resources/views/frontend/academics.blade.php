@@ -6,7 +6,7 @@
     $program = $program ?? [
         'eyebrow' => 'Academics',
         'title' => 'Learning that balances fundamentals, projects, and exam readiness.',
-        'level' => 'PG to Grade 10',
+        'level' => 'PG to Grade 12',
         'description' => 'Cambridge Public School supports students through early learning, middle school foundations, and high school preparation.',
         'features' => ['Kids School: Nursery - Grade 3', 'Middle School: Grade 4 - 8', 'High School: Grade 9 - 12', 'Practical learning and projects', 'Co-curricular activities', 'Guidance and mentoring'],
     ];
@@ -87,7 +87,7 @@
         ],
         'overview' => [
             'crumb' => 'Academics',
-            'badge' => 'PG to Grade 10',
+            'badge' => 'PG to Grade 12',
             'headline' => 'Learning designed for every stage.',
             'lead' => $program['description'],
             'image' => $assetBase . 'sushma_front.jpg',

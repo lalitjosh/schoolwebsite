@@ -12,6 +12,7 @@ use App\Models\ContactMessage;
 use App\Models\Notice;
 use App\Models\Result;
 use App\Models\Testimonial;
+use App\Models\Subscriber;
 
 class DashboardController extends Controller
 {
@@ -27,6 +28,7 @@ class DashboardController extends Controller
             'testimonialCount' => Testimonial::count(),
             'contactCount' => ContactMessage::count(),
             'admissionCount' => AdmissionInquiry::count(),
+            'subscriberCount' => Subscriber::count(),
         ]);
     }
 }

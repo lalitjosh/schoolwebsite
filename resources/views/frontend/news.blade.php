@@ -110,15 +110,19 @@
         </div>
     </div>
 
-    <section class="relative overflow-hidden bg-[#3a1724] py-16 text-white">
+    <section id="subscribe" class="relative overflow-hidden bg-[#3a1724] py-16 text-white">
         <div class="absolute inset-0 opacity-10" style="background-image: radial-gradient(circle at 2px 2px, white 1px, transparent 0); background-size: 30px 30px;"></div>
         <div class="relative mx-auto max-w-xl px-4 text-center">
             <h2 class="font-display text-3xl font-black">Stay Updated</h2>
             <p class="mt-3 text-sm text-pink-100/90">Subscribe to receive notice and event reminders.</p>
-            <form class="mt-6 flex flex-col gap-2 sm:flex-row">
-                <input type="email" placeholder="Email address" class="flex-1 rounded-lg border border-white/20 bg-[#273751] px-4 py-3 text-sm text-white outline-none focus:ring-2 focus:ring-[#f5b82e]">
-                <button type="button" class="rounded-lg bg-[#f5b82e] px-5 py-3 text-sm font-black text-[#111827]">Subscribe</button>
+            <form method="POST" action="{{ route('subscribe.store') }}" class="mt-6 flex flex-col gap-2 sm:flex-row">
+                @csrf
+                <input name="email" value="{{ old('email') }}" type="email" required placeholder="Email address" class="flex-1 rounded-lg border border-white/20 bg-[#273751] px-4 py-3 text-sm text-white outline-none focus:ring-2 focus:ring-[#f5b82e]">
+                <button class="rounded-lg bg-[#f5b82e] px-5 py-3 text-sm font-black text-[#111827] transition hover:bg-[#fbbf24]">Subscribe</button>
             </form>
+            @error('email')
+                <p class="mt-3 text-sm font-semibold text-[#f5b82e]">{{ $message }}</p>
+            @enderror
         </div>
     </section>
 </main>

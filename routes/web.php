@@ -16,6 +16,7 @@ use App\Http\Controllers\Admin\NoticeController;
 use App\Http\Controllers\Admin\PageContentController;
 use App\Http\Controllers\Admin\ResultController;
 use App\Http\Controllers\Admin\SettingController;
+use App\Http\Controllers\Admin\SubscriberController;
 use App\Http\Controllers\Admin\TestimonialController;
 
 Route::get('/', [HomeController::class, 'index'])->name('home');
@@ -35,6 +36,7 @@ Route::get('/result', [HomeController::class, 'result'])->name('result');
 Route::get('/contact', [HomeController::class, 'contactPage'])->name('contact');
 Route::post('/contact', [HomeController::class, 'contact'])->name('contact.store');
 Route::post('/admission-inquiry', [HomeController::class, 'admissionInquiry'])->name('admission.store');
+Route::post('/subscribe', [HomeController::class, 'subscribe'])->name('subscribe.store');
 
 Auth::routes();
 
@@ -61,5 +63,6 @@ Route::middleware('auth')
         Route::resource('testimonials', TestimonialController::class)->except(['show', 'create']);
         Route::resource('contact-messages', ContactMessageController::class)->only(['index', 'destroy']);
         Route::resource('admission-inquiries', AdmissionInquiryController::class)->only(['index', 'destroy']);
+        Route::resource('subscribers', SubscriberController::class)->only(['index', 'destroy']);
 
     });

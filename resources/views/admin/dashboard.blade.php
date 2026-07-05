@@ -55,6 +55,14 @@
         </div>
     </div>
 
+    <div class="col-md-3">
+        <div class="small-box bg-secondary">
+            <div class="inner">
+                <h3>{{ $subscriberCount }}</h3>
+                <p>Subscribers</p>
+            </div>
+        </div>
+    </div>
 </div>
 
 <div class="card">
@@ -74,6 +82,7 @@
                 ['Testimonials', 'admin.testimonials.index'],
                 ['Contact Messages', 'admin.contact-messages.index'],
                 ['Admission Inquiries', 'admin.admission-inquiries.index'],
+                ['Subscribers', 'admin.subscribers.index'],
                 ['Website Settings', 'admin.settings.edit'],
                 ['Page Sections', 'admin.page-contents.index'],
             ] as [$label, $route])
