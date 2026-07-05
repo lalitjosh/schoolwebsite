@@ -82,7 +82,7 @@
 
         <div class="border-t border-gray-100 bg-[#a0183d]">
             <div class="mx-auto flex w-full max-w-[1400px] items-stretch">
-                <div class="flex shrink-0 items-center gap-2 bg-[#16a34a] px-4 text-xs font-bold uppercase tracking-widest text-[#111827]">
+                <div class="flex shrink-0 items-center gap-2 bg-[#f5b82e] px-4 text-xs font-bold uppercase tracking-widest text-[#111827]">
                     <span class="hidden sm:inline">Notice</span>
                 </div>
                 <div class="ticker-wrapper relative min-w-0 flex-1 overflow-hidden py-1.5">
@@ -93,15 +93,15 @@
                             <div class="animate-ticker flex items-center">
                                 @forelse (($latestNotices ?? collect()) as $notice)
                                     <a href="{{ route('news') }}" class="group inline-flex items-center gap-3 px-6">
-                                        <span class="h-1.5 w-1.5 rounded-full bg-[#16a34a] opacity-70"></span>
-                                        <span class="text-xs font-medium text-white transition group-hover:text-[#16a34a]">{{ $notice->title }}</span>
+                                        <span class="h-1.5 w-1.5 rounded-full bg-[#f5b82e] opacity-70"></span>
+                                        <span class="text-xs font-medium text-white transition group-hover:text-[#f5b82e]">{{ $notice->title }}</span>
                                         <span class="rounded-full bg-white/10 px-2 py-0.5 text-[10px] font-semibold text-white/70">{{ optional($notice->publish_date)->diffForHumans() ?? 'Latest' }}</span>
                                     </a>
                                 @empty
                                     @foreach (['Admissions Open for 2083!', 'Quality education from PG to Grade 10', 'Modern learning with values and discipline'] as $notice)
                                         <a href="{{ route('admission') }}" class="group inline-flex items-center gap-3 px-6">
-                                            <span class="h-1.5 w-1.5 rounded-full bg-[#16a34a] opacity-70"></span>
-                                            <span class="text-xs font-medium text-white transition group-hover:text-[#16a34a]">{{ $notice }}</span>
+                                            <span class="h-1.5 w-1.5 rounded-full bg-[#f5b82e] opacity-70"></span>
+                                            <span class="text-xs font-medium text-white transition group-hover:text-[#f5b82e]">{{ $notice }}</span>
                                             <span class="rounded-full bg-white/10 px-2 py-0.5 text-[10px] font-semibold text-white/70">Latest</span>
                                         </a>
                                     @endforeach
@@ -146,7 +146,7 @@
         @yield('content')
     </div>
 
-    <footer class="border-t-4 border-[#16a34a] bg-[#111827] text-gray-300">
+    <footer class="border-t-4 border-[#f5b82e] bg-[#111827] text-gray-300">
         <div class="mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8">
             <div class="grid gap-8 md:grid-cols-2 lg:grid-cols-4">
                 <div>
@@ -160,7 +160,7 @@
                     <h3 class="mb-5 text-lg font-bold text-white">Quick Links</h3>
                     <ul class="space-y-3 text-sm">
                         @foreach (array_slice($navItems, 0, 6) as $item)
-                            <li><a href="{{ $item['url'] }}" class="text-slate-300 transition hover:text-[#16a34a] hover:underline">{{ $item['label'] }}</a></li>
+                            <li><a href="{{ $item['url'] }}" class="text-slate-300 transition hover:text-[#f5b82e] hover:underline">{{ $item['label'] }}</a></li>
                         @endforeach
                     </ul>
                 </div>
@@ -168,7 +168,7 @@
                     <h3 class="mb-5 text-lg font-bold text-white">Our Programs</h3>
                     <ul class="space-y-3 text-sm">
                         @foreach ($programLinks as $program)
-                            <li><a href="{{ $program['url'] }}" class="text-slate-300 transition hover:text-[#16a34a] hover:underline">{{ $program['label'] }} ({{ $program['meta'] }})</a></li>
+                            <li><a href="{{ $program['url'] }}" class="text-slate-300 transition hover:text-[#f5b82e] hover:underline">{{ $program['label'] }} ({{ $program['meta'] }})</a></li>
                         @endforeach
                     </ul>
                 </div>
@@ -176,14 +176,14 @@
                     <h3 class="mb-5 text-lg font-bold text-white">Contact Us</h3>
                     <ul class="space-y-4 text-sm text-slate-300">
                         <li>{{ $setting->address ?? 'Amargadhi-5, Dadeldhura, Sudurpashchim Province, Nepal' }}</li>
-                        <li><a href="tel:{{ $setting->phone ?? '9801181818' }}" class="hover:text-[#16a34a]">{{ $setting->phone ?? '9801181818' }}</a></li>
-                        <li><a href="mailto:{{ $setting->email ?? 'admin@cambridgeps.edu.np' }}" class="hover:text-[#16a34a]">{{ $setting->email ?? 'admin@cambridgeps.edu.np' }}</a></li>
+                        <li><a href="tel:{{ $setting->phone ?? '9801181818' }}" class="hover:text-[#f5b82e]">{{ $setting->phone ?? '9801181818' }}</a></li>
+                        <li><a href="mailto:{{ $setting->email ?? 'admin@cambridgeps.edu.np' }}" class="hover:text-[#f5b82e]">{{ $setting->email ?? 'admin@cambridgeps.edu.np' }}</a></li>
                     </ul>
                 </div>
             </div>
             <div class="mt-12 flex flex-col items-center justify-between gap-3 border-t border-[#a0183d] pt-8 text-sm text-slate-500 md:flex-row">
                 <p>&copy; {{ date('Y') }} {{ $schoolName }}. All rights reserved.</p>
-                <p>Designed & Developed by <span class="text-[#16a34a]">{{ $setting->footer_credit ?? 'Er.Lalit Prasad Joshi' }}</span></p>
+                <p>Designed & Developed by <span class="text-[#f5b82e]">{{ $setting->footer_credit ?? 'Er.Lalit Prasad Joshi' }}</span></p>
             </div>
         </div>
     </footer>

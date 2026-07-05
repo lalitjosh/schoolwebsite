@@ -156,7 +156,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     if (symbolsLayer) {
         const symbols = ['a²+b²=c²', '∫f(x)dx', 'dy/dx', 'π≈3.14', '∞', 'Σ', 'Δ', 'F=ma', 'E=mc²', 'H₂O', 'DNA', 'ATP', '√x', 'log n'];
-        const classes = ['green', 'green', 'burgundy', 'white'];
+        const classes = ['gold', 'gold', 'burgundy', 'white'];
 
         const spawnSymbol = () => {
             const symbol = document.createElement('div');

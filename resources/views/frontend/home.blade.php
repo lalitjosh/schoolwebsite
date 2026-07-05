@@ -40,14 +40,14 @@
             <div class="bg-[#a0183d] px-4 py-3 text-white">
                 <div class="flex items-start justify-between gap-4">
                     <div>
-                        <p class="text-[10px] font-black uppercase tracking-[0.2em] text-[#16a34a]">Important Notice</p>
+                        <p class="text-[10px] font-black uppercase tracking-[0.2em] text-[#f5b82e]">Important Notice</p>
                         <h2 class="font-display mt-1 text-xl font-black">Cambridge Public School</h2>
                     </div>
                     <button type="button" data-notice-close class="grid h-8 w-8 place-items-center rounded-full bg-white/12 text-xl leading-none hover:bg-white/20" aria-label="Close notice">&times;</button>
                 </div>
             </div>
             <div class="p-4">
-                <div class="overflow-hidden border-l-4 border-[#16a34a] bg-[#fbfaf7]">
+                <div class="overflow-hidden border-l-4 border-[#f5b82e] bg-[#fbfaf7]">
                     <div id="notice-track" class="flex transition-transform duration-500 ease-out">
                         @foreach ($notices as $notice)
                             <article class="notice-slide min-h-[110px] w-full shrink-0 p-3.5">
@@ -82,23 +82,23 @@
 
         <div class="relative z-20 mx-auto grid min-h-[calc(100vh-112px)] max-w-7xl items-center gap-12 px-4 py-16 sm:px-6 lg:grid-cols-[0.95fr_1.05fr] lg:px-8">
             <div class="reveal-left max-w-3xl">
-                <p class="mb-5 inline-flex rounded-full border border-[#16a34a]/35 bg-[#16a34a]/15 px-4 py-2 text-xs font-bold uppercase tracking-[0.24em] text-[#16a34a]">
+                <p class="mb-5 inline-flex rounded-full border border-[#f5b82e]/35 bg-[#f5b82e]/15 px-4 py-2 text-xs font-bold uppercase tracking-[0.24em] text-[#f5b82e]">
                     {{ $homeHero?->eyebrow ?? 'Est. ' . ($setting->established_year ?? '2062 BS') . ' - Admissions Open' }}
                 </p>
                 <h1 class="font-display text-5xl font-black leading-[1.03] sm:text-6xl lg:text-7xl">
-                    {{ $homeHero?->title ?? $hero?->title ?? 'Where Young' }} <span class="text-[#16a34a]" id="hero-typewriter" data-phrases='@json($typewriterPhrases)'>{{ $typewriterPhrases[0] ?? 'Minds Flourish' }}</span>
+                    {{ $homeHero?->title ?? $hero?->title ?? 'Where Young' }} <span class="text-[#f5b82e]" id="hero-typewriter" data-phrases='@json($typewriterPhrases)'>{{ $typewriterPhrases[0] ?? 'Minds Flourish' }}</span>
                 </h1>
                 <p class="mt-6 max-w-2xl text-lg leading-8 text-pink-50/85">
                     {{ $homeHero?->subtitle ?? $hero?->subtitle ?? 'Cambridge Public School Amargadhi-5, Dadeldhura nurtures learners from PG to Grade 10 with strong academics, modern teaching, discipline, creativity, and values.' }}
                 </p>
                 <div class="mt-9 flex flex-col gap-4 sm:flex-row">
-                    <a href="{{ $homeHero?->button_url ?: route('admission') }}" class="inline-flex items-center justify-center rounded-2xl bg-[#16a34a] px-9 py-4 font-bold text-[#111827] shadow-xl transition hover:scale-105 hover:bg-[#22c55e]">{{ $homeHero?->button_label ?? 'Apply Now' }}</a>
+                    <a href="{{ $homeHero?->button_url ?: route('admission') }}" class="inline-flex items-center justify-center rounded-2xl bg-[#f5b82e] px-9 py-4 font-bold text-[#111827] shadow-xl transition hover:scale-105 hover:bg-[#fbbf24]">{{ $homeHero?->button_label ?? 'Apply Now' }}</a>
                     <a href="{{ route('about') }}" class="inline-flex items-center justify-center rounded-2xl border-2 border-white/30 px-9 py-4 font-bold text-white transition hover:bg-white/10">Explore School</a>
                 </div>
             </div>
             <div class="reveal-right">
                 <div class="relative mx-auto max-w-[620px] pt-10 lg:pt-0">
-                    <div class="absolute -right-4 -top-1 hidden h-[310px] w-[310px] rounded-full border-2 border-dashed border-[#16a34a]/25 lg:block"></div>
+                    <div class="absolute -right-4 -top-1 hidden h-[310px] w-[310px] rounded-full border-2 border-dashed border-[#f5b82e]/25 lg:block"></div>
                     <div class="absolute -left-4 top-0 z-20 rounded-2xl bg-white px-5 py-4 text-[#111827] shadow-2xl sm:left-0 lg:-left-7 lg:top-5">
                         <div class="flex items-center gap-3">
                             <span class="grid h-10 w-10 place-items-center rounded-full bg-[#a0183d]/10 text-[#a0183d]">
@@ -115,7 +115,7 @@
                     </div>
                     <div class="absolute bottom-5 right-4 z-20 rounded-2xl border border-white/15 bg-[#111827]/90 px-5 py-4 text-white shadow-2xl backdrop-blur">
                         <p class="text-sm font-black leading-none">Top</p>
-                        <p class="mt-1 text-xs font-bold text-[#16a34a]">Academics</p>
+                        <p class="mt-1 text-xs font-bold text-[#f5b82e]">Academics</p>
                     </div>
                 </div>
             </div>
@@ -138,7 +138,7 @@
     <section class="bg-white py-20">
         <div class="mx-auto grid max-w-7xl gap-10 px-4 sm:px-6 lg:grid-cols-[0.85fr_1.15fr] lg:px-8">
             <div class="reveal">
-                <p class="text-xs font-black uppercase tracking-[0.28em] text-[#16a34a]">{{ $homeAbout?->eyebrow ?? 'About Our School' }}</p>
+                <p class="text-xs font-black uppercase tracking-[0.28em] text-[#f5b82e]">{{ $homeAbout?->eyebrow ?? 'About Our School' }}</p>
                 <h2 class="font-display mt-3 text-4xl font-black leading-tight text-[#111827] sm:text-5xl">{{ $homeAbout?->title ?? 'Fostering excellence, inspiring futures.' }}</h2>
                 <p class="mt-5 leading-8 text-[#4b5563]">{{ $homeAbout?->body ?? 'Cambridge Public School blends academic discipline with creativity, care, communication, and practical learning so every child grows with confidence.' }}</p>
                 <a href="{{ $homeAbout?->button_url ?: route('about') }}" class="mt-7 inline-flex rounded-2xl bg-[#a0183d] px-6 py-3 font-bold text-white transition hover:bg-pink-700">{{ $homeAbout?->button_label ?? 'Learn More' }}</a>
@@ -166,7 +166,7 @@
             <div class="mt-10 grid gap-6 md:grid-cols-3">
                 @foreach ($programs as $program)
                     <article class="reveal group rounded-3xl bg-white p-7 shadow-sm ring-1 ring-black/5 transition hover:-translate-y-1 hover:shadow-xl">
-                        <p class="text-xs font-black uppercase tracking-[0.2em] text-[#16a34a]">{{ $program['level'] }}</p>
+                        <p class="text-xs font-black uppercase tracking-[0.2em] text-[#f5b82e]">{{ $program['level'] }}</p>
                         <h3 class="font-display mt-5 text-3xl font-black text-[#111827]">{{ $program['title'] }}</h3>
                         <p class="mt-4 leading-7 text-[#4b5563]">{{ $program['text'] }}</p>
                         <a href="{{ $program['url'] }}" class="mt-6 inline-flex font-bold text-[#a0183d] group-hover:text-pink-700">Explore Program</a>
@@ -186,9 +186,9 @@
                         <div class="absolute inset-x-0 bottom-0 h-24 bg-gradient-to-t from-[#111827]/45 to-transparent"></div>
                     </div>
                     <div class="p-7 lg:p-12">
-                        <p class="text-xs font-bold uppercase tracking-[0.25em] text-[#16a34a]">{{ $principalMessage?->eyebrow ?? 'A Word From Our Leader' }}</p>
+                        <p class="text-xs font-bold uppercase tracking-[0.25em] text-[#f5b82e]">{{ $principalMessage?->eyebrow ?? 'A Word From Our Leader' }}</p>
                         <h2 class="font-display mt-3 text-3xl font-bold text-white">{{ $principalMessage?->title ?? 'Message From the Principal' }}</h2>
-                        <blockquote class="mt-6 border-l-4 border-[#16a34a] pl-6 text-base italic leading-loose text-pink-100/85">
+                        <blockquote class="mt-6 border-l-4 border-[#f5b82e] pl-6 text-base italic leading-loose text-pink-100/85">
                             {{ $principalMessage?->body ?? 'Our School is committed to fostering essential skills and helping students achieve their goals by identifying latent talents and stimulating innovative thinking.' }}
                         </blockquote>
                         <p class="mt-7 font-bold text-white">{{ $principal?->name ?? 'Harkesh Bahdur Shanki' }}</p>
@@ -201,11 +201,11 @@
 
     <section class="bg-[#a0183d] py-20 text-white">
         <div class="mx-auto max-w-4xl px-4 text-center sm:px-6 lg:px-8">
-            <p class="text-xs font-bold uppercase tracking-[0.3em] text-[#16a34a]">{{ $homeCta?->eyebrow ?? 'Join Our Community' }}</p>
+            <p class="text-xs font-bold uppercase tracking-[0.3em] text-[#f5b82e]">{{ $homeCta?->eyebrow ?? 'Join Our Community' }}</p>
             <h2 class="font-display mt-4 text-4xl font-bold leading-tight sm:text-5xl">{{ $homeCta?->title ?? 'Give Your Child the Gift of Quality Education' }}</h2>
             <p class="mx-auto mt-5 max-w-2xl leading-8 text-pink-100/80">{{ $homeCta?->subtitle ?? 'Admissions are now open for this academic year. Limited seats available, secure your child\'s future today.' }}</p>
             <div class="mt-8 flex flex-col justify-center gap-4 sm:flex-row">
-                <a href="{{ $homeCta?->button_url ?: route('admission') }}" class="rounded-2xl bg-[#16a34a] px-9 py-4 font-bold text-[#111827] transition hover:bg-[#22c55e]">{{ $homeCta?->button_label ?? 'Apply Now' }}</a>
+                <a href="{{ $homeCta?->button_url ?: route('admission') }}" class="rounded-2xl bg-[#f5b82e] px-9 py-4 font-bold text-[#111827] transition hover:bg-[#fbbf24]">{{ $homeCta?->button_label ?? 'Apply Now' }}</a>
                 <a href="{{ route('contact') }}" class="rounded-2xl border-2 border-white/30 px-9 py-4 font-bold text-white transition hover:bg-white/10">Contact Us</a>
             </div>
         </div>

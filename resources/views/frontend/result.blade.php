@@ -9,11 +9,11 @@
         <div class="absolute inset-0 opacity-10" style="background-image: radial-gradient(circle at 2px 2px, white 1px, transparent 0); background-size: 30px 30px;"></div>
         <div class="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
             <nav class="mb-8 flex items-center gap-2 text-sm font-medium text-pink-100/70">
-                <a href="{{ route('home') }}" class="hover:text-[#16a34a]">Home</a>
+                <a href="{{ route('home') }}" class="hover:text-[#f5b82e]">Home</a>
                 <span>/</span>
                 <span class="text-white">Result</span>
             </nav>
-            <div class="inline-flex rounded-full bg-[#16a34a] px-6 py-2.5 text-sm font-bold text-[#111827]">{{ $resultHero?->eyebrow ?? 'Result' }}</div>
+            <div class="inline-flex rounded-full bg-[#f5b82e] px-6 py-2.5 text-sm font-bold text-[#111827]">{{ $resultHero?->eyebrow ?? 'Result' }}</div>
             <h1 class="font-display mt-6 max-w-4xl text-4xl font-black leading-tight sm:text-6xl">{{ $resultHero?->title ?? 'Student Result Information' }}</h1>
             <p class="mt-6 max-w-3xl text-lg leading-8 text-pink-100/90">{{ $resultHero?->subtitle ?? 'Entrance and exam result notices can be linked here when the school publishes them.' }}</p>
         </div>
@@ -22,7 +22,7 @@
     <section class="bg-[#fbfaf7] px-4 py-20 sm:px-6 lg:px-8">
         <div class="mx-auto grid max-w-6xl gap-8 lg:grid-cols-[0.8fr_1.2fr]">
             <div class="rounded-[2rem] bg-[#a0183d] p-8 text-white shadow-xl">
-                <p class="text-sm font-bold uppercase tracking-widest text-[#16a34a]">Result Desk</p>
+                <p class="text-sm font-bold uppercase tracking-widest text-[#f5b82e]">Result Desk</p>
                 <h2 class="font-display mt-3 text-3xl font-black">Check Latest Updates</h2>
                 <p class="mt-5 leading-8 text-pink-100/80">Published exam results, admission results, and official result files from the school office are listed here.</p>
             </div>
@@ -39,7 +39,7 @@
         <div class="mx-auto mt-12 max-w-6xl">
             <div class="mb-8 flex flex-col gap-2 sm:flex-row sm:items-end sm:justify-between">
                 <div>
-                    <p class="text-sm font-bold uppercase tracking-widest text-[#16a34a]">Published Results</p>
+                    <p class="text-sm font-bold uppercase tracking-widest text-[#f5b82e]">Published Results</p>
                     <h2 class="font-display mt-2 text-3xl font-black text-[#111827]">Latest Result Notices</h2>
                 </div>
                 <a href="{{ route('contact') }}" class="text-sm font-bold text-[#a0183d] hover:text-[#111827]">Need help?</a>

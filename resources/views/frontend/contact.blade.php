@@ -6,14 +6,14 @@
 <main>
     <section class="relative overflow-hidden bg-gradient-to-br from-[#111827] via-[#a0183d] to-[#111827] py-24 text-white">
         <div class="absolute inset-0 opacity-10" style="background-image: radial-gradient(circle at 2px 2px, white 1px, transparent 0); background-size: 30px 30px;"></div>
-        <div class="absolute -left-20 -top-20 h-80 w-80 rounded-full bg-[#16a34a]/20 blur-3xl"></div>
+        <div class="absolute -left-20 -top-20 h-80 w-80 rounded-full bg-[#f5b82e]/20 blur-3xl"></div>
         <div class="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
             <nav class="mb-8 flex items-center gap-2 text-sm font-medium text-pink-100/70">
-                <a href="{{ route('home') }}" class="hover:text-[#16a34a]">Home</a>
+                <a href="{{ route('home') }}" class="hover:text-[#f5b82e]">Home</a>
                 <span>/</span>
                 <span class="text-white">Contact Us</span>
             </nav>
-            <div class="inline-flex rounded-full bg-[#16a34a] px-6 py-2.5 text-sm font-bold text-[#111827]">We are here to help</div>
+            <div class="inline-flex rounded-full bg-[#f5b82e] px-6 py-2.5 text-sm font-bold text-[#111827]">We are here to help</div>
             <h1 class="font-display mt-6 max-w-4xl text-4xl font-black leading-tight sm:text-6xl">{{ $contactHero?->title ?? 'Get in Touch With Us' }}</h1>
             <p class="mt-6 max-w-3xl text-lg leading-8 text-pink-100/90">{{ $contactHero?->subtitle ?? 'Visit, call, or send us a message. Our team is happy to answer questions about admissions and programs.' }}</p>
         </div>
@@ -48,7 +48,7 @@
                 </div>
 
                 <div class="rounded-[2rem] bg-white p-6 shadow-xl ring-1 ring-gray-100 md:p-8">
-                    <p class="text-sm font-bold uppercase tracking-widest text-[#16a34a]">Send Message</p>
+                    <p class="text-sm font-bold uppercase tracking-widest text-[#f5b82e]">Send Message</p>
                     <h2 class="font-display mt-2 text-3xl font-black text-[#111827]">How can we help?</h2>
                     <p class="mt-2 text-sm text-slate-500">Fill out the form below and we will get back to you as soon as possible.</p>
 

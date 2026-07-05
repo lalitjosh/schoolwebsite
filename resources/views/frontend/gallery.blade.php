@@ -38,14 +38,14 @@
 <main>
     <section class="relative overflow-hidden bg-gradient-to-br from-[#111827] via-[#a0183d] to-[#111827] py-24 text-white">
         <div class="absolute inset-0 opacity-10" style="background-image: radial-gradient(circle at 2px 2px, white 1px, transparent 0); background-size: 30px 30px;"></div>
-        <div class="absolute right-0 top-0 h-96 w-96 -translate-y-1/2 translate-x-1/2 rounded-full bg-[#16a34a]/20 blur-3xl"></div>
+        <div class="absolute right-0 top-0 h-96 w-96 -translate-y-1/2 translate-x-1/2 rounded-full bg-[#f5b82e]/20 blur-3xl"></div>
         <div class="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
             <nav class="mb-8 flex items-center gap-2 text-sm font-medium text-pink-100/70">
-                <a href="{{ route('home') }}" class="hover:text-[#16a34a]">Home</a>
+                <a href="{{ route('home') }}" class="hover:text-[#f5b82e]">Home</a>
                 <span>/</span>
                 <span class="text-white">Gallery</span>
             </nav>
-            <div class="inline-flex rounded-full bg-[#16a34a] px-6 py-2.5 text-sm font-bold text-[#111827]">School Memories</div>
+            <div class="inline-flex rounded-full bg-[#f5b82e] px-6 py-2.5 text-sm font-bold text-[#111827]">School Memories</div>
             <h1 class="font-display mt-6 max-w-4xl text-4xl font-black leading-tight sm:text-6xl">{{ $galleryHero?->title ?? 'Our Gallery' }}</h1>
             <p class="mt-6 max-w-3xl text-lg leading-8 text-pink-100/90">{{ $galleryHero?->subtitle ?? 'A visual journey through school life, academic achievements, sports events, classrooms, and campus moments.' }}</p>
         </div>
@@ -70,7 +70,7 @@
                     <button type="button" data-gallery-card data-category="{{ $photo['category'] }}" data-src="{{ $photo['image'] }}" data-title="{{ $photo['title'] }}" class="group mb-5 block w-full break-inside-avoid overflow-hidden rounded-2xl bg-white text-left shadow-sm ring-1 ring-gray-100 transition hover:-translate-y-1 hover:shadow-xl">
                         <img src="{{ $photo['image'] }}" alt="{{ $photo['title'] }}" class="w-full object-cover transition duration-700 group-hover:scale-105" style="height: 240px; object-fit: cover;" loading="lazy">
                         <div class="p-4">
-                            <p class="text-xs font-bold uppercase tracking-widest text-[#16a34a]">{{ $photo['category'] }}</p>
+                            <p class="text-xs font-bold uppercase tracking-widest text-[#f5b82e]">{{ $photo['category'] }}</p>
                             <h2 class="mt-1 font-bold text-[#111827]">{{ $photo['title'] }}</h2>
                         </div>
                     </button>

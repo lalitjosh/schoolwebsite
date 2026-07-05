@@ -12,14 +12,14 @@
 <main>
     <section class="relative overflow-hidden bg-gradient-to-br from-[#111827] via-[#a0183d] to-[#111827] py-16 text-white md:py-24">
         <div class="absolute inset-0 opacity-10" style="background-image: radial-gradient(circle at 2px 2px, white 1px, transparent 0); background-size: 30px 30px;"></div>
-        <div class="absolute -right-24 -top-24 h-96 w-96 rounded-full bg-[#16a34a]/20 blur-3xl"></div>
+        <div class="absolute -right-24 -top-24 h-96 w-96 rounded-full bg-[#f5b82e]/20 blur-3xl"></div>
         <div class="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
             <nav class="mb-8 flex items-center gap-2 text-sm font-medium text-pink-100/70">
-                <a href="{{ route('home') }}" class="hover:text-[#16a34a]">Home</a>
+                <a href="{{ route('home') }}" class="hover:text-[#f5b82e]">Home</a>
                 <span>/</span>
                 <span class="text-white">Notice/Event</span>
             </nav>
-            <div class="inline-flex rounded-full bg-[#16a34a] px-5 py-2 text-xs font-bold uppercase tracking-widest text-[#111827]">School Updates</div>
+            <div class="inline-flex rounded-full bg-[#f5b82e] px-5 py-2 text-xs font-bold uppercase tracking-widest text-[#111827]">School Updates</div>
             <h1 class="font-display mt-5 text-4xl font-black tracking-tight text-white sm:text-5xl">{{ $heroTitle }}</h1>
             <p class="mt-4 max-w-2xl text-lg leading-8 text-pink-100/90">{{ $heroSubtitle }}</p>
         </div>
@@ -29,7 +29,7 @@
         <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
             <div class="mb-8 flex flex-col justify-between gap-4 sm:flex-row sm:items-end">
                 <div>
-                    <p class="text-sm font-bold uppercase tracking-widest text-[#16a34a]">Notice Board</p>
+                    <p class="text-sm font-bold uppercase tracking-widest text-[#f5b82e]">Notice Board</p>
                     <h2 class="font-display mt-2 text-3xl font-black text-[#111827]">Latest Notices</h2>
                 </div>
                 <a href="#events" class="rounded-lg bg-pink-50 px-4 py-2 text-sm font-bold text-[#a0183d] hover:bg-[#a0183d] hover:text-white">View Events</a>
@@ -72,7 +72,7 @@
         <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
             <div class="mb-8 flex flex-col justify-between gap-4 sm:flex-row sm:items-end">
                 <div>
-                    <p class="text-sm font-bold uppercase tracking-widest text-[#16a34a]">Calendar</p>
+                    <p class="text-sm font-bold uppercase tracking-widest text-[#f5b82e]">Calendar</p>
                     <h2 class="font-display mt-2 text-3xl font-black text-[#111827]">School Events</h2>
                 </div>
             </div>
@@ -80,7 +80,7 @@
             <div class="grid gap-5 md:grid-cols-3">
                 @forelse ($events as $event)
                     <article class="reveal rounded-3xl bg-[#fbfaf7] p-6 shadow-sm ring-1 ring-gray-100 transition hover:-translate-y-1 hover:shadow-xl">
-                        <p class="text-sm font-black text-[#16a34a]">{{ optional($event->event_date)->format('M d, Y') ?? 'Coming Soon' }}</p>
+                        <p class="text-sm font-black text-[#f5b82e]">{{ optional($event->event_date)->format('M d, Y') ?? 'Coming Soon' }}</p>
                         <h3 class="mt-3 text-xl font-black text-[#111827]">{{ $event->title }}</h3>
                         <p class="mt-3 text-sm leading-7 text-slate-600">{{ $event->description ? \Illuminate\Support\Str::limit($event->description, 130) : ($event->location ?? 'School campus') }}</p>
                     </article>
@@ -98,7 +98,7 @@
         <div class="w-full max-w-2xl overflow-hidden rounded-2xl bg-white shadow-2xl">
             <div class="flex items-center justify-between gap-4 bg-[#a0183d] px-5 py-4 text-white">
                 <div>
-                    <p data-notice-detail-date class="text-xs font-black uppercase tracking-[0.18em] text-[#16a34a]"></p>
+                    <p data-notice-detail-date class="text-xs font-black uppercase tracking-[0.18em] text-[#f5b82e]"></p>
                     <h2 data-notice-detail-title class="font-display mt-1 text-2xl font-black"></h2>
                 </div>
                 <button type="button" data-notice-detail-close class="grid h-9 w-9 place-items-center rounded-full bg-white/10 text-2xl leading-none hover:bg-white/20" aria-label="Close notice">&times;</button>
@@ -116,8 +116,8 @@
             <h2 class="font-display text-3xl font-black">Stay Updated</h2>
             <p class="mt-3 text-sm text-pink-100/90">Subscribe to receive notice and event reminders.</p>
             <form class="mt-6 flex flex-col gap-2 sm:flex-row">
-                <input type="email" placeholder="Email address" class="flex-1 rounded-lg border border-white/20 bg-[#273751] px-4 py-3 text-sm text-white outline-none focus:ring-2 focus:ring-[#16a34a]">
-                <button type="button" class="rounded-lg bg-[#16a34a] px-5 py-3 text-sm font-black text-[#111827]">Subscribe</button>
+                <input type="email" placeholder="Email address" class="flex-1 rounded-lg border border-white/20 bg-[#273751] px-4 py-3 text-sm text-white outline-none focus:ring-2 focus:ring-[#f5b82e]">
+                <button type="button" class="rounded-lg bg-[#f5b82e] px-5 py-3 text-sm font-black text-[#111827]">Subscribe</button>
             </form>
         </div>
     </section>

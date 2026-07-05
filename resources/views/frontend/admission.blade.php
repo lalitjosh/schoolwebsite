@@ -10,14 +10,14 @@
 <main>
     <section class="relative overflow-hidden bg-gradient-to-br from-[#111827] via-[#a0183d] to-[#111827] py-24 text-white">
         <div class="absolute inset-0 opacity-10" style="background-image: radial-gradient(circle at 2px 2px, white 1px, transparent 0); background-size: 30px 30px;"></div>
-        <div class="absolute right-0 top-0 h-96 w-96 -translate-y-1/2 translate-x-1/2 rounded-full bg-[#16a34a]/20 blur-3xl"></div>
+        <div class="absolute right-0 top-0 h-96 w-96 -translate-y-1/2 translate-x-1/2 rounded-full bg-[#f5b82e]/20 blur-3xl"></div>
         <div class="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
             <nav class="mb-8 flex items-center gap-2 text-sm font-medium text-pink-100/70">
-                <a href="{{ route('home') }}" class="hover:text-[#16a34a]">Home</a>
+                <a href="{{ route('home') }}" class="hover:text-[#f5b82e]">Home</a>
                 <span>/</span>
                 <span class="text-white">Admissions</span>
             </nav>
-            <div class="inline-flex rounded-full bg-[#16a34a] px-6 py-2.5 text-sm font-bold text-[#111827] shadow-lg">
+            <div class="inline-flex rounded-full bg-[#f5b82e] px-6 py-2.5 text-sm font-bold text-[#111827] shadow-lg">
                 {{ $admissionHero?->eyebrow ?? 'Now Open: Admissions 2083-2084' }}
             </div>
             <h1 class="font-display mt-6 max-w-4xl text-4xl font-black leading-tight sm:text-6xl">{{ $admissionHero?->title ?? 'Begin Your Childs Journey to Excellence' }}</h1>
@@ -33,7 +33,7 @@
                     <div class="mt-8 space-y-6">
                         @foreach ($steps as $step)
                             <div class="group flex gap-4">
-                                <span class="grid h-11 w-11 shrink-0 place-items-center rounded-2xl bg-[#a0183d]/10 font-black text-[#a0183d] group-hover:bg-[#a0183d] group-hover:text-[#16a34a]">{{ $loop->iteration }}</span>
+                                <span class="grid h-11 w-11 shrink-0 place-items-center rounded-2xl bg-[#a0183d]/10 font-black text-[#a0183d] group-hover:bg-[#a0183d] group-hover:text-[#f5b82e]">{{ $loop->iteration }}</span>
                                 <div>
                                     <p class="font-bold text-[#111827]">{{ $step }}</p>
                                     <p class="mt-1 text-sm leading-6 text-slate-600">Our team guides parents at each step.</p>
@@ -42,7 +42,7 @@
                         @endforeach
                     </div>
                     <div class="mt-10 rounded-3xl bg-[#a0183d] p-6 text-white">
-                        <p class="text-xs font-bold uppercase tracking-widest text-[#16a34a]">Required Documents</p>
+                        <p class="text-xs font-bold uppercase tracking-widest text-[#f5b82e]">Required Documents</p>
                         <p class="mt-3 text-sm leading-7 text-pink-50/80">Birth certificate, previous mark sheet, passport photos, and parent or guardian identity copy.</p>
                     </div>
                 </div>
@@ -51,7 +51,7 @@
             <div class="lg:col-span-8">
                 <div class="rounded-[2rem] bg-white p-6 shadow-xl ring-1 ring-gray-100 md:p-8">
                     <div class="mb-8">
-                        <p class="text-sm font-bold uppercase tracking-widest text-[#16a34a]">Admission Form</p>
+                        <p class="text-sm font-bold uppercase tracking-widest text-[#f5b82e]">Admission Form</p>
                         <h2 class="font-display mt-2 text-3xl font-black text-[#111827]">Admission Inquiry Form</h2>
                         <p class="mt-2 text-sm text-slate-500">Please fill out the form accurately. Required fields are marked by the browser.</p>
                     </div>

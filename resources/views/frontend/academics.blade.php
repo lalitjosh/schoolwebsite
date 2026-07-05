@@ -113,19 +113,19 @@
 <main>
     <section class="relative overflow-hidden bg-gradient-to-b from-[#a0183d] to-[#111827] py-24 text-white">
         <div class="absolute inset-0 opacity-10" style="background-image: radial-gradient(circle at 2px 2px, white 1px, transparent 0); background-size: 30px 30px;"></div>
-        <div class="absolute left-10 top-10 h-20 w-20 rounded-full bg-[#16a34a]/80 blur-xl"></div>
-        <div class="absolute bottom-20 right-20 h-32 w-32 rounded-full bg-[#16a34a]/40 blur-2xl"></div>
+        <div class="absolute left-10 top-10 h-20 w-20 rounded-full bg-[#f5b82e]/80 blur-xl"></div>
+        <div class="absolute bottom-20 right-20 h-32 w-32 rounded-full bg-[#f5b82e]/40 blur-2xl"></div>
 
         <div class="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
             <nav class="mb-8 flex items-center gap-2 text-sm font-medium text-pink-100/70">
-                <a href="{{ route('home') }}" class="hover:text-[#16a34a]">Home</a>
+                <a href="{{ route('home') }}" class="hover:text-[#f5b82e]">Home</a>
                 <span>/</span>
-                <a href="{{ route('academics') }}" class="hover:text-[#16a34a]">Academics</a>
+                <a href="{{ route('academics') }}" class="hover:text-[#f5b82e]">Academics</a>
                 <span>/</span>
                 <span class="text-white">{{ $page['crumb'] }}</span>
             </nav>
 
-            <div class="inline-flex items-center gap-2 rounded-full bg-[#16a34a] px-6 py-2.5 text-sm font-bold text-[#111827] shadow-lg">
+            <div class="inline-flex items-center gap-2 rounded-full bg-[#f5b82e] px-6 py-2.5 text-sm font-bold text-[#111827] shadow-lg">
                 {{ $page['badge'] }}
             </div>
             <h1 class="font-display mt-6 max-w-4xl text-4xl font-black leading-tight tracking-tight sm:text-6xl lg:text-7xl">
@@ -144,8 +144,8 @@
             </div>
 
             <div class="reveal-right">
-                <p class="mb-4 flex items-center gap-3 text-sm font-bold uppercase tracking-widest text-[#16a34a]">
-                    <span class="h-0.5 w-8 bg-[#16a34a]"></span>{{ $page['intro_label'] }}
+                <p class="mb-4 flex items-center gap-3 text-sm font-bold uppercase tracking-widest text-[#f5b82e]">
+                    <span class="h-0.5 w-8 bg-[#f5b82e]"></span>{{ $page['intro_label'] }}
                 </p>
                 <h2 class="font-display text-3xl font-black leading-tight text-[#111827] lg:text-5xl">{{ $page['intro_title'] }}</h2>
                 <p class="mt-6 text-lg leading-8 text-slate-600">{{ $page['intro'] }}</p>
@@ -153,7 +153,7 @@
                 <div class="mt-8 space-y-5">
                     @foreach (array_slice($program['features'], 0, 4) as $feature)
                         <div class="group flex items-start gap-4">
-                            <span class="grid h-12 w-12 shrink-0 place-items-center rounded-2xl bg-[#fbfaf7] font-black text-[#a0183d] shadow-sm ring-1 ring-gray-100 transition group-hover:bg-[#a0183d] group-hover:text-[#16a34a]">{{ $loop->iteration }}</span>
+                            <span class="grid h-12 w-12 shrink-0 place-items-center rounded-2xl bg-[#fbfaf7] font-black text-[#a0183d] shadow-sm ring-1 ring-gray-100 transition group-hover:bg-[#a0183d] group-hover:text-[#f5b82e]">{{ $loop->iteration }}</span>
                             <div>
                                 <h3 class="font-bold text-[#111827] transition group-hover:text-[#a0183d]">{{ $feature }}</h3>
                                 <p class="mt-1 text-sm leading-6 text-slate-500">Managed from Page Sections in the backend.</p>
@@ -169,7 +169,7 @@
         <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
             <div class="reveal mx-auto mb-14 max-w-2xl text-center">
                 <h2 class="font-display text-3xl font-black text-[#111827] lg:text-5xl">{{ $page['cards_title'] }}</h2>
-                <div class="mx-auto mt-4 h-1 w-20 rounded-full bg-[#16a34a]"></div>
+                <div class="mx-auto mt-4 h-1 w-20 rounded-full bg-[#f5b82e]"></div>
             </div>
             <div class="grid gap-6 md:grid-cols-2 lg:grid-cols-4">
                 @foreach ($page['cards'] as [$title, $text])
@@ -196,8 +196,8 @@
                 <div class="grid gap-8 md:grid-cols-3">
                     @foreach ($page['journey'] as [$verb, $level, $text])
                         <article class="reveal rounded-3xl border border-gray-100 bg-[#fbfaf7] p-7 text-center shadow-sm">
-                            <div class="mx-auto mb-5 grid h-16 w-16 place-items-center rounded-full bg-[#a0183d] text-xl font-black text-[#16a34a]">{{ $loop->iteration }}</div>
-                            <h3 class="font-display text-2xl font-black text-[#111827]">{{ $verb }} <span class="block text-lg text-[#16a34a]">{{ $level }}</span></h3>
+                            <div class="mx-auto mb-5 grid h-16 w-16 place-items-center rounded-full bg-[#a0183d] text-xl font-black text-[#f5b82e]">{{ $loop->iteration }}</div>
+                            <h3 class="font-display text-2xl font-black text-[#111827]">{{ $verb }} <span class="block text-lg text-[#f5b82e]">{{ $level }}</span></h3>
                             <p class="mt-4 leading-7 text-slate-600">{{ $text }}</p>
                         </article>
                     @endforeach
@@ -206,7 +206,7 @@
         </section>
     @endif
 
-    <section class="relative overflow-hidden bg-[#16a34a] py-24">
+    <section class="relative overflow-hidden bg-[#f5b82e] py-24">
         <div class="absolute inset-0 opacity-10" style="background-image: radial-gradient(circle at 4px 4px, #111827 2px, transparent 0); background-size: 40px 40px;"></div>
         <div class="relative mx-auto max-w-4xl px-4 text-center sm:px-6 lg:px-8">
             <h2 class="font-display text-4xl font-black text-[#111827] lg:text-5xl">Ready to Join {{ $page['crumb'] }}?</h2>
