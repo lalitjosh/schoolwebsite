@@ -34,7 +34,6 @@
             'alt' => $section?->title ?: 'School campus photo',
         ];
     });
-    $principal = $faculties->first(fn ($faculty) => str_contains(strtolower($faculty->designation ?? ''), 'principal')) ?? $faculties->first();
 @endphp
 
 <main>

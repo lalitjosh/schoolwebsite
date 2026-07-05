@@ -52,6 +52,7 @@ class HomeController extends Controller
                 ->latest()
                 ->take(4)
                 ->get(),
+            'principal' => $this->principalFaculty(),
             'galleries' => Gallery::query()
                 ->with('images')
                 ->latest()
@@ -239,6 +240,13 @@ class HomeController extends Controller
             ->with('success', 'Thank you for subscribing. You will receive notice and event reminders.');
     }
 
+    private function principalFaculty(): ?Faculty
+    {
+        return Faculty::query()
+            ->where('designation', 'like', '%principal%')
+            ->oldest('id')
+            ->first();
+    }
     private function sharedViewData(array $extra = []): array
     {
         return array_merge([
@@ -251,6 +259,7 @@ class HomeController extends Controller
                 ->latest()
                 ->take(8)
                 ->get(),
+            'principal' => $this->principalFaculty(),
             'content' => $this->pageContent(),
         ], $extra);
     }

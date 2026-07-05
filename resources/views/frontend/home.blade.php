@@ -11,7 +11,6 @@
     $homeCta = $content->get('home.cta');
     $principalMessage = $content->get('principal.message');
     $heroImage = $hero?->image ? asset('storage/' . $hero->image) : 'https://www.sushmasecondary.edu.np/assets/image/sushma.jpg';
-    $principal = $faculties->first(fn ($faculty) => str_contains(strtolower($faculty->designation ?? ''), 'principal')) ?? $faculties->first();
     $principalImage = $principalMessage?->image ? asset('storage/' . $principalMessage->image) : ($principal?->photo ? asset('storage/' . $principal->photo) : 'https://www.sushmasecondary.edu.np/assets/image/bodh_raj.png');
     $programs = [
         ['title' => $content->get('academics.elementary')?->eyebrow ?? 'Kids School', 'level' => $content->get('academics.elementary')?->subtitle ?? 'Nursery - Grade 3', 'url' => route('academics.elementary'), 'text' => $content->get('academics.elementary')?->body ?? 'Playful learning, early literacy, numeracy, creativity, discipline, and social confidence.'],
