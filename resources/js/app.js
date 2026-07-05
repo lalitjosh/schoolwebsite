@@ -250,6 +250,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const lightbox = document.querySelector('[data-gallery-lightbox]');
     const lightboxImage = document.querySelector('[data-gallery-lightbox-image]');
     const lightboxTitle = document.querySelector('[data-gallery-lightbox-title]');
+    const lightboxDescription = document.querySelector('[data-gallery-lightbox-description]');
     const lightboxClose = document.querySelector('[data-gallery-close]');
     const lightboxNext = document.querySelector('[data-gallery-next]');
     const lightboxPrev = document.querySelector('[data-gallery-prev]');
@@ -274,6 +275,11 @@ document.addEventListener('DOMContentLoaded', () => {
 
         if (lightboxTitle) {
             lightboxTitle.textContent = card.dataset.title || '';
+        }
+
+        if (lightboxDescription) {
+            lightboxDescription.textContent = card.dataset.description || '';
+            lightboxDescription.classList.toggle('hidden', !card.dataset.description);
         }
 
         lightbox.classList.remove('hidden');

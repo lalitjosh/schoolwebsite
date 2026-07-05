@@ -69,7 +69,7 @@
         <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
             <div class="columns-1 gap-5 sm:columns-2 lg:columns-3">
                 @foreach ($photos as $photo)
-                    <button type="button" data-gallery-card data-category="{{ $photo['category'] }}" data-src="{{ $photo['image'] }}" data-title="{{ $photo['title'] }}" class="group mb-5 block w-full break-inside-avoid overflow-hidden rounded-2xl bg-white text-left shadow-sm ring-1 ring-gray-100 transition hover:-translate-y-1 hover:shadow-xl">
+                    <button type="button" data-gallery-card data-category="{{ $photo['category'] }}" data-src="{{ $photo['image'] }}" data-title="{{ $photo['title'] }}" data-description="{{ $photo['description'] ?? '' }}" class="group mb-5 block w-full break-inside-avoid overflow-hidden rounded-2xl bg-white text-left shadow-sm ring-1 ring-gray-100 transition hover:-translate-y-1 hover:shadow-xl">
                         <img src="{{ $photo['image'] }}" alt="{{ $photo['title'] }}" class="w-full object-cover transition duration-700 group-hover:scale-105" style="height: 240px; object-fit: cover;" loading="lazy">
                         <div class="p-4">
                             @if (strcasecmp($photo['category'], $photo['title']) !== 0)
@@ -91,7 +91,10 @@
         <button type="button" data-gallery-prev class="absolute left-4 top-1/2 hidden -translate-y-1/2 rounded-full bg-white/10 px-4 py-3 font-black text-white hover:bg-white/20 sm:block" aria-label="Previous image">Prev</button>
         <figure class="w-full max-w-5xl">
             <img data-gallery-lightbox-image src="" alt="" class="max-h-[78vh] w-full rounded-3xl object-contain">
-            <figcaption data-gallery-lightbox-title class="mt-4 text-center font-bold text-white"></figcaption>
+            <figcaption class="mt-4 rounded-2xl bg-black/35 p-4 text-center text-white">
+                <h2 data-gallery-lightbox-title class="font-bold"></h2>
+                <p data-gallery-lightbox-description class="mx-auto mt-2 max-h-32 max-w-3xl overflow-y-auto text-sm leading-6 text-white/85"></p>
+            </figcaption>
         </figure>
         <button type="button" data-gallery-next class="absolute right-4 top-1/2 hidden -translate-y-1/2 rounded-full bg-white/10 px-4 py-3 font-black text-white hover:bg-white/20 sm:block" aria-label="Next image">Next</button>
     </div>
