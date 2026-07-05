@@ -333,6 +333,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const noticeDetailDate = document.querySelector('[data-notice-detail-date]');
     const noticeDetailContent = document.querySelector('[data-notice-detail-content]');
     const noticeDetailImage = document.querySelector('[data-notice-detail-image]');
+    const noticeDetailImageWrap = document.querySelector('[data-notice-detail-image-wrap]');
 
     const closeNoticeDetail = () => {
         noticeDetail?.classList.add('hidden');
@@ -362,7 +363,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 const image = card.dataset.noticeImage || '';
                 noticeDetailImage.src = image;
                 noticeDetailImage.alt = card.dataset.noticeTitle || 'Notice image';
-                noticeDetailImage.classList.toggle('hidden', image === '');
+                noticeDetailImageWrap?.classList.toggle('hidden', image === '');
             }
 
             noticeDetail.classList.remove('hidden');
