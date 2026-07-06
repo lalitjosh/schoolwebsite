@@ -334,8 +334,18 @@ document.addEventListener('DOMContentLoaded', () => {
     const noticeDetailContent = document.querySelector('[data-notice-detail-content]');
     const noticeDetailImage = document.querySelector('[data-notice-detail-image]');
     const noticeDetailImageWrap = document.querySelector('[data-notice-detail-image-wrap]');
+    const noticeImageZoomTrigger = document.querySelector('[data-notice-image-zoom-trigger]');
+    const noticeImageZoom = document.querySelector('[data-notice-image-zoom]');
+    const noticeImageZoomImage = document.querySelector('[data-notice-image-zoom-image]');
+    const noticeImageZoomClose = document.querySelector('[data-notice-image-zoom-close]');
+
+    const closeNoticeImageZoom = () => {
+        noticeImageZoom?.classList.add('hidden');
+        noticeImageZoom?.classList.remove('flex');
+    };
 
     const closeNoticeDetail = () => {
+        closeNoticeImageZoom();
         noticeDetail?.classList.add('hidden');
         noticeDetail?.classList.remove('flex');
         document.body.classList.remove('overflow-hidden');
@@ -373,6 +383,24 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     noticeDetailClose?.addEventListener('click', closeNoticeDetail);
+    noticeImageZoomTrigger?.addEventListener('click', (event) => {
+        event.stopPropagation();
+
+        if (!noticeDetailImage?.src || !noticeImageZoom || !noticeImageZoomImage) {
+            return;
+        }
+
+        noticeImageZoomImage.src = noticeDetailImage.src;
+        noticeImageZoomImage.alt = noticeDetailImage.alt || 'Zoomed notice image';
+        noticeImageZoom.classList.remove('hidden');
+        noticeImageZoom.classList.add('flex');
+    });
+    noticeImageZoomClose?.addEventListener('click', closeNoticeImageZoom);
+    noticeImageZoom?.addEventListener('click', (event) => {
+        if (event.target === noticeImageZoom || event.target === noticeImageZoomImage) {
+            closeNoticeImageZoom();
+        }
+    });
     noticeDetail?.addEventListener('click', (event) => {
         if (event.target === noticeDetail) {
             closeNoticeDetail();
@@ -380,6 +408,11 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     document.addEventListener('keydown', (event) => {
+        if (event.key === 'Escape' && noticeImageZoom && !noticeImageZoom.classList.contains('hidden')) {
+            closeNoticeImageZoom();
+            return;
+        }
+
         if (event.key === 'Escape' && noticeDetail && !noticeDetail.classList.contains('hidden')) {
             closeNoticeDetail();
         }
