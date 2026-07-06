@@ -5,6 +5,12 @@
 @php
     $admissionHero = $content->get('admissions.hero');
     $steps = $admissionHero?->items ?: ['Submit inquiry form', 'Schedule school tour', 'Student interaction', 'Complete enrollment'];
+    $stepDescriptions = [
+        'Share student and parent details so our admission office can review your inquiry.',
+        'Bring the required documents and visit the campus for counseling and guidance.',
+        'The student meets our team for a friendly assessment and parent discussion.',
+        'Complete admission formalities, confirm the seat, and prepare for classes.',
+    ];
 @endphp
 
 <main>
@@ -36,7 +42,7 @@
                                 <span class="grid h-11 w-11 shrink-0 place-items-center rounded-2xl bg-[#a0183d]/10 font-black text-[#a0183d] group-hover:bg-[#a0183d] group-hover:text-[#f5b82e]">{{ $loop->iteration }}</span>
                                 <div>
                                     <p class="font-bold text-[#111827]">{{ $step }}</p>
-                                    <p class="mt-1 text-sm leading-6 text-slate-600">Our team guides parents at each step.</p>
+                                    <p class="mt-1 text-sm leading-6 text-slate-600">{{ $stepDescriptions[$loop->index] ?? 'Our admission team will guide you through this step.' }}</p>
                                 </div>
                             </div>
                         @endforeach
