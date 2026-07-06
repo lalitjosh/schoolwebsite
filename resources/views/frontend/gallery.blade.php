@@ -54,14 +54,14 @@
     </section>
 
     <section class="sticky top-[112px] z-40 border-b border-gray-200 bg-white py-4 shadow-sm">
-        <div class="mx-auto flex max-w-7xl flex-wrap items-center justify-between gap-4 px-4 sm:px-6 lg:px-8">
-            <div class="flex flex-wrap gap-2" data-gallery-filters>
-                <button type="button" data-gallery-filter="All" class="gallery-filter-active rounded-full px-4 py-2 text-sm font-bold transition">All Photos</button>
+        <div class="mx-auto flex max-w-7xl flex-col gap-3 px-4 sm:px-6 md:flex-row md:items-center md:justify-between lg:px-8">
+            <div class="-mx-4 flex gap-2 overflow-x-auto px-4 pb-1 md:mx-0 md:flex-wrap md:overflow-visible md:px-0 md:pb-0" data-gallery-filters>
+                <button type="button" data-gallery-filter="All" class="gallery-filter-active shrink-0 whitespace-nowrap rounded-full px-4 py-2 text-sm font-bold transition">All Photos</button>
                 @foreach ($categories as $category)
-                    <button type="button" data-gallery-filter="{{ $category }}" class="rounded-full bg-gray-100 px-4 py-2 text-sm font-bold text-slate-600 transition hover:bg-pink-50 hover:text-[#a0183d]">{{ $category }}</button>
+                    <button type="button" data-gallery-filter="{{ $category }}" class="shrink-0 whitespace-nowrap rounded-full bg-gray-100 px-4 py-2 text-sm font-bold text-slate-600 transition hover:bg-pink-50 hover:text-[#a0183d]">{{ $category }}</button>
                 @endforeach
             </div>
-            <p class="text-sm font-bold text-slate-500"><span data-gallery-count>{{ $photos->count() }}</span> photos</p>
+            <p class="shrink-0 text-sm font-bold text-slate-500"><span data-gallery-count>{{ $photos->count() }}</span> photos</p>
         </div>
     </section>
 
