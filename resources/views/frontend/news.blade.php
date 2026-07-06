@@ -44,14 +44,16 @@
                         data-notice-date="{{ optional($notice->publish_date)->format('M d, Y') ?? 'Latest' }}"
                         data-notice-content="{{ $notice->content }}"
                         data-notice-image="{{ $notice->image ? asset('storage/' . $notice->image) : '' }}"
-                        class="reveal overflow-hidden rounded-3xl bg-white text-left shadow-sm ring-1 ring-gray-100 transition hover:-translate-y-1 hover:shadow-xl focus:outline-none focus:ring-2 focus:ring-[#a0183d]"
+                        class="reveal flex flex-col overflow-hidden rounded-3xl bg-white text-left shadow-sm ring-1 ring-gray-100 transition hover:-translate-y-1 hover:shadow-xl focus:outline-none focus:ring-2 focus:ring-[#a0183d]"
                     >
                         @if ($notice->image)
-                            <img src="{{ asset('storage/' . $notice->image) }}" alt="{{ $notice->title }}" class="w-full object-cover" style="height: 224px; object-fit: cover;">
+                            <div class="flex shrink-0 items-center justify-center overflow-hidden border-b-8 border-[#fbfaf7] bg-white p-3" style="height: 360px;">
+                                <img src="{{ asset('storage/' . $notice->image) }}" alt="{{ $notice->title }}" style="display: block; max-height: 100%; max-width: 100%; width: auto; height: auto; object-fit: contain;">
+                            </div>
                         @else
-                            <div class="grid h-40 place-items-center bg-[#a0183d] px-6 text-center text-xl font-black text-white">{{ $notice->title }}</div>
+                            <div class="grid h-40 shrink-0 place-items-center bg-[#a0183d] px-6 text-center text-xl font-black text-white">{{ $notice->title }}</div>
                         @endif
-                        <div class="p-6">
+                        <div class="relative z-10 mt-0 bg-white p-6">
                             <p class="text-xs font-bold uppercase tracking-widest text-[#a0183d]">Notice - {{ optional($notice->publish_date)->format('M d, Y') ?? 'Latest' }}</p>
                             <h3 class="mt-2 text-xl font-black text-[#111827]">{{ $notice->title }}</h3>
                             <p class="mt-3 leading-7 text-slate-600">{{ \Illuminate\Support\Str::limit($notice->content, 160) }}</p>
@@ -94,8 +96,8 @@
         </div>
     </section>
 
-    <div data-notice-detail class="fixed inset-0 z-[100] hidden items-center justify-center bg-[#111827]/80 p-4">
-        <div class="w-full max-w-2xl overflow-hidden rounded-2xl bg-white shadow-2xl">
+    <div data-notice-detail class="fixed inset-0 z-[100] hidden items-start justify-center overflow-y-auto bg-[#111827]/80 px-4 py-6 sm:py-8">
+        <div class="w-full max-w-4xl overflow-hidden rounded-2xl bg-white shadow-2xl">
             <div class="flex items-center justify-between gap-4 bg-[#a0183d] px-5 py-4 text-white">
                 <div>
                     <p data-notice-detail-date class="text-xs font-black uppercase tracking-[0.18em] text-[#f5b82e]"></p>
@@ -103,11 +105,22 @@
                 </div>
                 <button type="button" data-notice-detail-close class="grid h-9 w-9 place-items-center rounded-full bg-white/10 text-2xl leading-none hover:bg-white/20" aria-label="Close notice">&times;</button>
             </div>
-            <div class="p-5">
-                <img data-notice-detail-image src="" alt="" class="mb-5 hidden w-full rounded-xl object-cover" style="max-height: 340px; object-fit: cover;">
-                <p data-notice-detail-content class="whitespace-pre-line leading-8 text-slate-700"></p>
+            <div class="grid gap-5 p-5">
+                <div data-notice-detail-image-wrap class="hidden rounded-xl bg-white p-3 ring-1 ring-gray-100">
+                    <button type="button" data-notice-image-zoom-trigger class="group block w-full cursor-zoom-in rounded-lg focus:outline-none focus:ring-2 focus:ring-[#a0183d]" aria-label="Zoom notice image">
+                        <img data-notice-detail-image src="" alt="" class="mx-auto rounded-lg transition group-hover:brightness-95" style="display: block; max-height: 52vh; max-width: 100%; width: auto; height: auto; object-fit: contain;">
+                    </button>
+                </div>
+                <div class="rounded-xl bg-[#fbfaf7] p-5 ring-1 ring-gray-100">
+                    <p data-notice-detail-content class="whitespace-pre-line leading-8 text-slate-700"></p>
+                </div>
             </div>
         </div>
+    </div>
+
+    <div data-notice-image-zoom class="fixed inset-0 z-[120] hidden items-center justify-center bg-[#111827]/95 p-4">
+        <button type="button" data-notice-image-zoom-close class="absolute right-5 top-5 grid h-11 w-11 place-items-center rounded-full bg-white/10 text-2xl leading-none text-white hover:bg-white/20" aria-label="Close zoomed notice image">&times;</button>
+        <img data-notice-image-zoom-image src="" alt="" class="cursor-zoom-out rounded-xl shadow-2xl" style="display: block; max-height: 92vh; max-width: 96vw; width: auto; height: auto; object-fit: contain;">
     </div>
 
     <section id="subscribe" class="relative overflow-hidden bg-[#3a1724] py-16 text-white">

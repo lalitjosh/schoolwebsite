@@ -91,10 +91,3 @@
     </section>
 </main>
 @endsection
-@extends('layouts.frontend')
-
-@section('content')
-<div class="container mt-5">
-    <h1>Notices Page</h1>
-</div>
-@endsection@extends('layouts.frontend')

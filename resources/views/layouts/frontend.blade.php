@@ -82,15 +82,15 @@
 
         <div class="border-t border-gray-100 bg-[#a0183d]">
             <div class="mx-auto flex w-full max-w-[1400px] items-stretch">
-                <div class="flex shrink-0 items-center gap-2 bg-[#f5b82e] px-4 text-xs font-bold uppercase tracking-widest text-[#111827]">
+                <div class="flex shrink-0 items-center gap-2 bg-[#f5b82e] px-3 text-xs font-bold uppercase tracking-widest text-[#111827] sm:px-4">
+                    <span class="grid h-6 w-6 place-items-center rounded-full border border-[#111827]/20 bg-white/70 font-black lowercase leading-none sm:hidden">i</span>
                     <span class="hidden sm:inline">Notice</span>
                 </div>
                 <div class="ticker-wrapper relative min-w-0 flex-1 overflow-hidden py-1.5">
                     <div class="absolute inset-y-0 left-0 z-10 w-8 bg-gradient-to-r from-[#a0183d] to-transparent"></div>
                     <div class="absolute inset-y-0 right-0 z-10 w-8 bg-gradient-to-l from-[#a0183d] to-transparent"></div>
                     <div class="flex whitespace-nowrap">
-                        @for ($copy = 0; $copy < 2; $copy++)
-                            <div class="animate-ticker flex items-center">
+                        <div class="animate-ticker flex items-center">
                                 @forelse (($latestNotices ?? collect()) as $notice)
                                     <a href="{{ route('news') }}" class="group inline-flex items-center gap-3 px-6">
                                         <span class="h-1.5 w-1.5 rounded-full bg-[#f5b82e] opacity-70"></span>
@@ -106,32 +106,61 @@
                                         </a>
                                     @endforeach
                                 @endforelse
-                            </div>
-                        @endfor
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </header>
 
-    <div data-mobile-menu class="fixed inset-0 z-[80] hidden bg-black/50 lg:hidden">
-        <div class="ml-auto flex h-full w-full max-w-sm translate-x-full flex-col bg-white p-5 shadow-2xl transition duration-300" data-mobile-panel>
-            <div class="flex items-center justify-between">
-                <span class="font-bold text-[#111827]">{{ $schoolName }}</span>
-                <button type="button" data-mobile-menu-close class="rounded-lg p-2 text-slate-600 hover:bg-gray-100" aria-label="Close menu">&times;</button>
+    <div data-mobile-menu class="fixed inset-0 z-[200] hidden bg-[#111827]/60 backdrop-blur-sm lg:hidden">
+        <div class="ml-auto flex h-full w-full max-w-sm translate-x-full flex-col overflow-y-auto bg-[#fbfaf7] shadow-2xl ring-1 ring-black/10 transition duration-300" data-mobile-panel>
+            <div class="bg-[#111827] px-5 pb-6 pt-5 text-white">
+                <div class="flex items-start justify-between gap-4">
+                    <a href="{{ route('home') }}" class="flex min-w-0 items-center gap-3">
+                        <span class="grid h-12 w-12 shrink-0 place-items-center rounded-xl bg-white p-1">
+                            <img src="{{ $logo }}" alt="{{ $schoolName }} logo" class="h-full w-full object-contain">
+                        </span>
+                        <span class="min-w-0">
+                            <span class="block truncate font-bold leading-tight">{{ $schoolName }}</span>
+                            <span class="mt-1 block text-xs text-white/60">{{ $setting->tagline ?? 'Fostering Excellence, Inspiring Futures' }}</span>
+                        </span>
+                    </a>
+                    <button type="button" data-mobile-menu-close class="grid h-10 w-10 shrink-0 place-items-center rounded-full bg-white/10 text-2xl leading-none text-white transition hover:bg-white/20" aria-label="Close menu">&times;</button>
+                </div>
+                <a href="{{ route('admission') }}" class="mt-5 inline-flex w-full items-center justify-center rounded-xl bg-[#f5b82e] px-4 py-3 text-sm font-black text-[#111827] shadow-lg transition hover:bg-[#fbbf24]">Enroll Now</a>
             </div>
-            <div class="mt-6 grid gap-2">
-                <a href="{{ route('home') }}" class="rounded-lg px-3 py-2 font-semibold text-slate-800 hover:bg-pink-50">Home</a>
-                <a href="{{ route('about') }}" class="rounded-lg px-3 py-2 font-semibold text-slate-800 hover:bg-pink-50">About</a>
-                @foreach ($programLinks as $program)
-                    <a href="{{ $program['url'] }}" class="rounded-lg px-3 py-2 font-semibold text-slate-800 hover:bg-pink-50">{{ $program['label'] }} <span class="block text-xs font-normal text-slate-500">{{ $program['meta'] }}</span></a>
-                @endforeach
-                <a href="{{ route('admission') }}" class="rounded-lg px-3 py-2 font-semibold text-slate-800 hover:bg-pink-50">Admissions</a>
-                <a href="{{ route('news') }}" class="rounded-lg px-3 py-2 font-semibold text-slate-800 hover:bg-pink-50">Notice/Event</a>
-                <a href="{{ route('gallery') }}" class="rounded-lg px-3 py-2 font-semibold text-slate-800 hover:bg-pink-50">Gallery</a>
-                <a href="{{ route('faculty') }}" class="rounded-lg px-3 py-2 font-semibold text-slate-800 hover:bg-pink-50">Faculty</a>
-                <a href="{{ route('contact') }}" class="rounded-lg px-3 py-2 font-semibold text-slate-800 hover:bg-pink-50">Contact</a>
-                <a href="{{ route('result') }}" class="rounded-lg px-3 py-2 font-semibold text-slate-800 hover:bg-pink-50">Result</a>
+
+            <div class="flex-1 px-5 py-5">
+                <p class="px-2 text-[11px] font-black uppercase tracking-[0.22em] text-[#a0183d]">Menu</p>
+                <div class="mt-3 grid gap-1.5">
+                    @foreach ($navItems as $item)
+                        @if (! in_array($item['label'], ['Admissions'], true))
+                            <a href="{{ $item['url'] }}" class="flex items-center justify-between rounded-xl px-4 py-3 text-sm font-bold transition {{ $item['active'] ? 'bg-[#a0183d] text-white shadow-md' : 'bg-white text-slate-800 ring-1 ring-black/5 hover:bg-pink-50 hover:text-[#a0183d]' }}">
+                                <span>{{ $item['label'] }}</span>
+                                <span class="{{ $item['active'] ? 'bg-white/20 text-white' : 'bg-[#f5b82e]/30 text-[#a0183d]' }} grid h-6 w-6 place-items-center rounded-full text-xs">&rsaquo;</span>
+                            </a>
+                        @endif
+                    @endforeach
+                </div>
+
+                <div class="mt-6 rounded-2xl bg-white p-3 shadow-sm ring-1 ring-black/5">
+                    <p class="px-2 text-[11px] font-black uppercase tracking-[0.2em] text-slate-500">Academics</p>
+                    <div class="mt-2 grid gap-1">
+                        @foreach ($programLinks as $program)
+                            <a href="{{ $program['url'] }}" class="rounded-xl px-3 py-3 transition hover:bg-[#fbfaf7]">
+                                <span class="block text-sm font-bold text-[#111827]">{{ $program['label'] }}</span>
+                                <span class="mt-0.5 block text-xs font-medium text-slate-500">{{ $program['meta'] }}</span>
+                            </a>
+                        @endforeach
+                    </div>
+                </div>
+
+                <div class="mt-5 rounded-2xl bg-[#a0183d] p-4 text-white shadow-sm">
+                    <p class="text-xs font-black uppercase tracking-[0.2em] text-[#f5b82e]">Contact</p>
+                    <p class="mt-2 text-sm font-semibold">{{ $setting->phone ?? '9801181818' }}</p>
+                    <p class="mt-1 break-words text-xs text-white/70">{{ $setting->email ?? 'admin@cambridgeps.edu.np' }}</p>
+                </div>
             </div>
         </div>
     </div>

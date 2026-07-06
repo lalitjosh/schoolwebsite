@@ -81,7 +81,7 @@
             'journey' => [
                 ['Build', 'Class 9', 'Subject depth, disciplined study, lab work, and concept foundation.'],
                 ['Perform', 'Class 10', 'SEE strategy, model tests, feedback, revision, and confidence.'],
-                ['Advance', 'Class 11-12', 'Science, Management, Hotel Management, and career preparation.'],
+                ['Advance', 'Class 11-12', 'Science, Management, Education, Law and Career preparation.'],
             ],
             'cta' => 'Talk with our admission team about SEE preparation and +2 streams for the new academic session.',
         ],

@@ -42,7 +42,7 @@
 
 @if (($notices ?? collect())->isNotEmpty())
     <div id="notice-popup" class="fixed inset-0 z-[90] hidden items-center justify-center bg-[#111827]/65 px-4 opacity-0 backdrop-blur-sm transition-opacity duration-300" role="dialog" aria-modal="true">
-        <div id="notice-popup-panel" class="w-full max-w-sm translate-y-8 scale-95 overflow-hidden rounded-xl bg-white opacity-0 shadow-2xl transition duration-300">
+        <div id="notice-popup-panel" class="max-h-[92vh] w-full max-w-lg translate-y-8 scale-95 overflow-hidden rounded-xl bg-white opacity-0 shadow-2xl transition duration-300">
             <div class="bg-[#a0183d] px-4 py-3 text-white">
                 <div class="flex items-start justify-between gap-4">
                     <div>
@@ -52,18 +52,22 @@
                     <button type="button" data-notice-close class="grid h-8 w-8 place-items-center rounded-full bg-white/12 text-xl leading-none hover:bg-white/20" aria-label="Close notice">&times;</button>
                 </div>
             </div>
-            <div class="p-4">
+            <div class="max-h-[calc(92vh-76px)] overflow-y-auto p-4">
                 <div class="overflow-hidden border-l-4 border-[#f5b82e] bg-[#fbfaf7]">
                     <div id="notice-track" class="flex transition-transform duration-500 ease-out">
                         @foreach ($notices as $notice)
-                            <article class="notice-slide min-h-[110px] w-full shrink-0 p-3.5">
+                            <article class="notice-slide w-full shrink-0 p-3.5">
                                 @if ($notice->image)
-                                    <img src="{{ asset('storage/' . $notice->image) }}" alt="{{ $notice->title }}" class="mb-3 w-full rounded-lg object-cover" style="height: 120px; object-fit: cover;">
+                                    <div class="mb-3 flex items-center justify-center overflow-hidden rounded-lg border border-black/5 bg-white p-3" style="height: 230px;">
+                                        <img src="{{ asset('storage/' . $notice->image) }}" alt="{{ $notice->title }}" style="display: block; max-height: 100%; max-width: 100%; width: auto; height: auto; object-fit: contain;">
+                                    </div>
                                 @endif
-                                <p class="text-[10px] font-black uppercase tracking-[0.16em] text-[#a0183d]">{{ optional($notice->publish_date)->format('M d, Y') ?? 'School Notice' }}</p>
-                                <h3 class="mt-2 text-lg font-black text-[#111827]">{{ $notice->title }}</h3>
-                                <p class="mt-2 text-sm leading-6 text-[#4b5563]">{{ \Illuminate\Support\Str::limit($notice->content, 130) }}</p>
-                                <a href="{{ route('news') }}#notice-board" class="mt-3 inline-flex rounded-lg bg-[#a0183d] px-3 py-1.5 text-xs font-bold text-white">View Notice</a>
+                                <div class="clear-both rounded-lg bg-white p-3 ring-1 ring-black/5">
+                                    <p class="text-[10px] font-black uppercase tracking-[0.16em] text-[#a0183d]">{{ optional($notice->publish_date)->format('M d, Y') ?? 'School Notice' }}</p>
+                                    <h3 class="mt-2 text-lg font-black text-[#111827]">{{ $notice->title }}</h3>
+                                    <p class="mt-2 text-sm leading-6 text-[#4b5563]">{{ \Illuminate\Support\Str::limit($notice->content, 130) }}</p>
+                                    <a href="{{ route('news') }}#notice-board" class="mt-3 inline-flex rounded-lg bg-[#a0183d] px-3 py-1.5 text-xs font-bold text-white">View Notice</a>
+                                </div>
                             </article>
                         @endforeach
                     </div>

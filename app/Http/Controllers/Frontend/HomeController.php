@@ -19,6 +19,7 @@ use App\Models\Testimonial;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
+use Illuminate\Support\Str;
 
 class HomeController extends Controller
 {
@@ -36,10 +37,7 @@ class HomeController extends Controller
                 ->latest('publish_date')
                 ->take(4)
                 ->get(),
-            'latestNotices' => Notice::query()
-                ->latest('publish_date')
-                ->take(4)
-                ->get(),
+            'latestNotices' => $this->latestNoticeTickerItems(),
             'newsItems' => News::query()
                 ->latest()
                 ->take(3)
@@ -251,10 +249,7 @@ class HomeController extends Controller
     {
         return array_merge([
             'setting' => Setting::query()->latest()->first(),
-            'latestNotices' => Notice::query()
-                ->latest('publish_date')
-                ->take(4)
-                ->get(),
+            'latestNotices' => $this->latestNoticeTickerItems(),
             'faculties' => Faculty::query()
                 ->latest()
                 ->take(8)
@@ -262,6 +257,18 @@ class HomeController extends Controller
             'principal' => $this->principalFaculty(),
             'content' => $this->pageContent(),
         ], $extra);
+    }
+
+    private function latestNoticeTickerItems(int $limit = 4): \Illuminate\Support\Collection
+    {
+        return Notice::query()
+            ->latest('publish_date')
+            ->latest()
+            ->take($limit * 3)
+            ->get()
+            ->unique(fn (Notice $notice) => Str::lower(trim($notice->title)))
+            ->take($limit)
+            ->values();
     }
 
     private function pageContent(): \Illuminate\Support\Collection
